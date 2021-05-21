@@ -1,0 +1,19 @@
+{
+  "name": "best-restaurant-app",
+  "version": "1.0.0",
+  "description": "An app that helps you to find the best restaurants you would like to have lunch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matheusmorcinek/best-restaurant-app.git"
+  },
+  "author": "Matheus Morcinek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matheusmorcinek/best-restaurant-app/issues"
+  },
+  "homepage": "https://github.com/matheusmorcinek/best-restaurant-app#readme"
+}
