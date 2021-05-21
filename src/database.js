@@ -45,7 +45,7 @@ function createDatabaseConnection() {
             }
         );
 
-        dataJoined.asCSV().writeFileSync(DATA_PATH);
+        // dataJoined.asCSV().writeFileSync(DATA_PATH);
     }
 
     return {
