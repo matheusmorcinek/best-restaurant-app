@@ -1,0 +1,189 @@
+{
+	"info": {
+		"_postman_id": "b484a925-35eb-47c7-998d-7c1d2238de21",
+		"name": "Best-restaurant-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3010/restaurants/find?customer_rating=4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//50 ms is a maximum allowed value",
+							"maximumResponseTime = 5;",
+							"//100 is a number of sent requests ",
+							"iterations = 1000;",
+							"//100 ms is a delay between requests ",
+							"delay = 10;",
+							"//responseTimes is an array for collecting response time values",
+							"responseTimes = [];",
+							"i=0;",
+							"function sendRequest() {",
+							"    pm.sendRequest({",
+							"        url: \"http://localhost:3010/restaurants/find?name=Delicious&distance=10&price=30\",",
+							"        method: 'GET'",
+							"    }, function (err, res) {",
+							"        pm.test(\"Response time is \" + res.responseTime, function (){",
+							"        pm.expect(err).to.equal(null);",
+							"        pm.expect(res).to.have.property('code', 200);",
+							"        responseTimes.push(res.responseTime);",
+							"        });",
+							"        if (i < iterations - 1) {",
+							"            i++;",
+							"            setTimeout(sendRequest, delay);",
+							"        } ",
+							"        else {",
+							"            percentile90ResponseTime = quantile(responseTimes, 90);",
+							"            pm.test(\"90 percentile response time \" + percentile90ResponseTime + \" is lower than \" + maximumResponseTime + \", the number of iterations is \" + iterations, function () {",
+							"                pm.expect(percentile90ResponseTime).to.be.below(maximumResponseTime);",
+							"            });",
+							"        }",
+							"    });",
+							"}",
+							"sendRequest();",
+							"function sortNumber(a,b) {",
+							"    return a - b;",
+							"}",
+							"function quantile(array, percentile) {",
+							"    array.sort(sortNumber);",
+							"    index = percentile/100. * (array.length-1);",
+							"    if (Math.floor(index) == index) {",
+							"     result = array[index];",
+							"    } else {",
+							"        j = Math.floor(index)",
+							"        fraction = index - j;",
+							"        result = array[j] + (array[j+1] - array[j]) * fraction;",
+							"    }",
+							"    return result;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3010/restaurants/find?name=Delicious&distance=10&price=30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"restaurants",
+						"find"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Delicious"
+						},
+						{
+							"key": "customer_rating",
+							"value": "5",
+							"disabled": true
+						},
+						{
+							"key": "cuisine",
+							"value": "American",
+							"disabled": true
+						},
+						{
+							"key": "distance",
+							"value": "10"
+						},
+						{
+							"key": "price",
+							"value": "30"
+						}
+					]
+				},
+				"description": "At least one parameter is mandatory\n\nname, customer_rating, price, cuisine, distance"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3010/restaurants/all",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//5 ms is a maximum allowed value ",
+							"maximumResponseTime = 5;",
+							"//100 is a number of sent requests  ",
+							"iterations = 1000;",
+							"//100 ms is a delay between requests ",
+							"delay = 10;",
+							"//responseTimes is an array for collecting response time values",
+							"responseTimes = [];",
+							"i=0;",
+							"function sendRequest() {",
+							"    pm.sendRequest({",
+							"        url: \"http://localhost:3010/restaurants/all\",",
+							"        method: 'GET'",
+							"    }, function (err, res) {",
+							"        pm.test(\"Response time is \" + res.responseTime, function (){",
+							"        pm.expect(err).to.equal(null);",
+							"        pm.expect(res).to.have.property('code', 200);",
+							"        responseTimes.push(res.responseTime);",
+							"        });",
+							"        if (i < iterations - 1) {",
+							"            i++;",
+							"            setTimeout(sendRequest, delay);",
+							"        } ",
+							"        else {",
+							"            percentile90ResponseTime = quantile(responseTimes, 90);",
+							"            pm.test(\"90 percentile response time \" + percentile90ResponseTime + \" is lower than \" + maximumResponseTime + \", the number of iterations is \" + iterations, function () {",
+							"                pm.expect(percentile90ResponseTime).to.be.below(maximumResponseTime);",
+							"            });",
+							"        }",
+							"    });",
+							"}",
+							"sendRequest();",
+							"function sortNumber(a,b) {",
+							"    return a - b;",
+							"}",
+							"function quantile(array, percentile) {",
+							"    array.sort(sortNumber);",
+							"    index = percentile/100. * (array.length-1);",
+							"    if (Math.floor(index) == index) {",
+							"     result = array[index];",
+							"    } else {",
+							"        j = Math.floor(index)",
+							"        fraction = index - j;",
+							"        result = array[j] + (array[j+1] - array[j]) * fraction;",
+							"    }",
+							"    return result;",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3010/restaurants/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"restaurants",
+						"all"
+					]
+				},
+				"description": "List all available restaurants"
+			},
+			"response": []
+		}
+	]
+}
