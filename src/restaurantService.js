@@ -21,9 +21,20 @@ function restaurantService(data = {}) {
             throw Error('Invalid name value');
         }
 
-        if (params.customer_rating &&
-            typeof parseInt(params.customer_rating) != 'number' &&
-            (parseInt(params.customer_rating) < 1 || parseInt(params.customer_rating) > 5)) {
+        //testing
+
+
+        if (params.customer_rating) {
+
+            throw Error('Invalid Customer Rating value, should be a number and value between (1 ~ 5)');
+        }
+
+        if (typeof parseInt(params.customer_rating) != 'number') {
+
+            throw Error('Invalid Customer Rating value, should be a number and value between (1 ~ 5)');
+        }
+
+        if (parseInt(params.customer_rating) < 1 || parseInt(params.customer_rating) > 5) {
 
             throw Error('Invalid Customer Rating value, should be a number and value between (1 ~ 5)');
         }
