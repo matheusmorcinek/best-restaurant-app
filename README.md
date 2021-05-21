@@ -1,7 +1,7 @@
 # best-restaurant-app
 
 # additional assumptions
-The solution was implemented using factories and dependency injection to make it easy to separate the app by modules and so facilitation the testing.
+The solution was implemented using factories and dependency injection to make it easy to separate unit/components and so facilitation the testing.
 ## Required tools
 
 - [Git](https://git-scm.com/downloads) 2.24.3 or later
