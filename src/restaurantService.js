@@ -7,7 +7,7 @@ function restaurantService(data = {}) {
 
     async function retrieveAllRestaurants() {
 
-        return await restaurants;
+        return await _restaurants;
     }
 
     async function retrieveBestMatchedRestaurant(params) {
@@ -21,7 +21,6 @@ function restaurantService(data = {}) {
 
         const result = restaurants.filter(restaurant => {
 
-            //TODO test
             return filterKeys.every(index => {
 
                 if (typeof filters[index] !== 'function') {
@@ -32,7 +31,6 @@ function restaurantService(data = {}) {
 
         });
 
-        //TODO test
         const sortedResult = result.sort((current, next) => {
 
             if (current.distance < next.distance) return -1;
@@ -89,7 +87,6 @@ function restaurantService(data = {}) {
 
     function _buildFilters({ name, customer_rating, distance, price, cuisine }) {
 
-        //TODO TEST FILTERS
         const filters = {
             ...(name && { name: _matchesInTheValue }),
             ...(customer_rating && { customer_rating: _checkGreaterOrEqual }),

@@ -32,29 +32,6 @@ function createWebServer() {
                 return;
             }
 
-            // if (!params.hasOwnProperty('name')) {
-            //     res.status(400).send('Bad Request - name param is missing');
-            //     return;
-            // }
-
-            // if (!params.hasOwnProperty('customer_rating')) {
-            //     res.status(400).send('Bad Request - customer_rating param is missing');
-            //     return;
-            // }
-
-            // if (!params.hasOwnProperty('distance')) {
-            //     res.status(400).send('Bad Request - distance param is missing');
-            //     return;
-            // }
-            // if (!params.hasOwnProperty('price')) {
-            //     res.status(400).send('Bad Request - price param is missing');
-            //     return;
-            // }
-            // if (!params.hasOwnProperty('cuisine')) {
-            //     res.status(400).send('Bad Request - cuisine param is missing');
-            //     return;
-            // }
-
             try {
 
                 res.send(await _restaurantService.retrieveBestMatchedRestaurant(params))
