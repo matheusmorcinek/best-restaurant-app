@@ -1,7 +1,8 @@
 # best-restaurant-app
 
 # additional assumptions
-The solution was implemented using factories and dependency injection to make it easy to separate unit/components and so facilitation the testing.
+The solution was implemented using factories and dependency injection to make it easy to separate unit/components and so facilitating the tests. I exposed the method that finds the best restaurant on a service to facilitate using and searching the restaurants.
+
 ## Required tools
 
 - [Git](https://git-scm.com/downloads) 2.24.3 or later
