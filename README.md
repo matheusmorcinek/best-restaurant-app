@@ -12,9 +12,10 @@ The solution was implemented using factories and dependency injection to make it
 ## Premises
 
 The following instructions in this document assumes that:
-    * You have installed all required tools defined in [this section](#required-tools)
-    * You have already cloned the project using any git-based tool.
-    * You are using a shell terminal located on the project's root directory.
+    
+    1. You have installed all required tools defined in [this section](#required-tools)
+    2. You have already cloned the project using any git-based tool.
+    3. You are using a shell terminal located on the project's root directory.
 
 ### On local development environment
 
