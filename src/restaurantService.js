@@ -33,9 +33,20 @@ function restaurantService(data = {}) {
 
         const sortedResult = result.sort((current, next) => {
 
-            if (current.distance < next.distance) return -1;
-            if (current.customer_rating > next.customer_rating) return -1;
-            if (current.price < next.price) return -1;
+            if (current.distance < next.distance) {
+                return -1;
+            } else if (current.distance > next.distance) {
+                return 1
+            } else if (current.customer_rating > next.customer_rating) {
+                return -1;
+            } else if (current.customer_rating < next.customer_rating) {
+                return 1;
+            } else if (current.price < next.price) {
+                return -1;
+            } else if (current.price > next.price) {
+                return 1;
+            }
+            return 0;
         });
 
         return sortedResult.slice(0, 5);
@@ -43,8 +54,12 @@ function restaurantService(data = {}) {
 
     function _parametersValidations(params) {
 
+        if (Object.entries(params).length > 5) {
+            throw Error('More than 5 parameters were provided. You can use name, customer_value, cuisine, distance, or price.');
+        }
+
         if (Object.entries(params).length == 0) {
-            throw Error('At least one parameter is mandatory');
+            throw Error('At least one parameter is mandatory. You can use name, customer_value, cuisine, distance, or price.');
         }
 
         if (params.name && typeof params.name != 'string') {
@@ -109,12 +124,12 @@ function restaurantService(data = {}) {
 
     function _checkGreaterOrEqual(current, value) {
 
-        return current >= value;
+        return parseInt(current) >= parseInt(value);
     }
 
     function _checkEqualOrLess(current, value) {
 
-        return current <= value;
+        return parseInt(current) <= parseInt(value);
     }
 
     return {
