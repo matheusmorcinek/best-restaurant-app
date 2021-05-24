@@ -14,7 +14,7 @@ In the past few months, I have been using more JavaScript on a daily basis than 
 
 The following instructions in this document assumes that:
 
-    1. You have installed all required tools defined in [this section](#required-tools)
+    1. You have installed all required tools defined above.
     2. You have already cloned the project using any git-based tool.
     3. You are using a shell terminal located on the project's root directory.
 
